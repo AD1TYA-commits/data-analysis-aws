@@ -1,16 +1,22 @@
 import matplotlib
 matplotlib.use("Agg")
 
-import csv
+import boto3
 import pandas as pd
 import matplotlib.pyplot as plt
 from flask import Flask,render_template
 
 app = Flask(__name__)
+s3 = boto3.client("s3")
 
 @app.route("/")
 def index():
-    df = pd.read_csv("data/data.csv")
+    
+    obj = s3.get_object(Bucket= "spotify-data-aditya",Key="data.csv")
+    with open("/tmp/data.csv","wb") as f:
+        f.write(obj["Body"].read())
+    df = pd.read_csv("/tmp/data.csv")
+
     album_counts = df["album"].value_counts().head(5)
     
     plt.figure(figsize=(18,6))
@@ -18,7 +24,8 @@ def index():
     plt.xlabel("album")
     plt.ylabel("song")
     plt.savefig("static/chart.png")
+    plt.close()
     return render_template("index.html")
 
-app.run(debug=True)
-
+if __name__ == "__main__":
+    app.run(host="0.0.0.0",port=5000)

@@ -1,21 +1,6 @@
-# ===== Python =====
 __pycache__/
 *.pyc
-
-# ===== Virtual Environment =====
-.venv/
+.env
 venv/
-
-# ===== AWS / Secrets =====
-*.pem
-.aws/
-
-# ===== Data / Local files =====
-*.csv
-
-# ===== Logs =====
-*.log
-
-# ===== OS / Editor =====
-.DS_Store
-.vscode/
+.env/
+static/chart.png
