@@ -12,7 +12,7 @@ s3 = boto3.client("s3")
 @app.route("/")
 def index():
     
-    obj = s3.get_object(Bucket= "spotify-data-aditya",Key="data.csv")
+    obj = s3.get_object(Bucket= "<your-bucket-name>",Key="<csv file_name>")
     with open("/tmp/data.csv","wb") as f:
         f.write(obj["Body"].read())
     df = pd.read_csv("/tmp/data.csv")
