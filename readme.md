@@ -4,20 +4,28 @@ A minimal cloud-based web application that fetches Spotify data from AWS S3, ana
 
 ---
 
-## 🏗 Project Structure
+## Project Structure
 .
+
 ├── requirements.txt
 
 ├── README.md
 
 ├── templates/
+
 │ └── index.html
 
 ├── static/
+
 │ └── style.css
 
 ├── data/
+
 │ └── data.csv
+
+├── docs/
+
+│ └── architecture.md
 
 ##  Tech Stack
 - Python
@@ -29,7 +37,7 @@ A minimal cloud-based web application that fetches Spotify data from AWS S3, ana
 - HTML / CSS
 
 ---
-## WS Usage
+## AWS Usage
 - **S3**: Stores the Spotify CSV dataset
 - **EC2**: Hosts the Flask web application
 - **IAM Role**: Grants EC2 permission to access S3 securely
@@ -40,5 +48,6 @@ A minimal cloud-based web application that fetches Spotify data from AWS S3, ana
 - Move compute from EC2 to AWS Lambda
 - Add cloudwatch loggin and monitoring
 - Containerize using Docker
+- CI/CD actions
 
 ---
