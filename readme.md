@@ -7,6 +7,8 @@ A minimal cloud-based web application that fetches Spotify data from AWS S3, ana
 ## Project Structure
 .
 
+├── app.py
+
 ├── requirements.txt
 
 ├── README.md
